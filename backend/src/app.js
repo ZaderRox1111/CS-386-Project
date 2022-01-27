@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 const router = require('./router/router');
 
-const port = 8080;
+const port = 80;
 const ip = '104.168.247.236';
 
 app.use(cors());
