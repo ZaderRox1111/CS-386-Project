@@ -59,9 +59,9 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 ## Versioning
 
-For versioning we use 
+For versioning we use [Semver](https://semver.org/)
 
-Current Version: 
+Current Version: 1.0.0
 
 ## Authors
 
