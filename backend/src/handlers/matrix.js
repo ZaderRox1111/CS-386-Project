@@ -26,7 +26,5 @@ const calculateMatrix = (req, res) => {
 }
 
 module.exports = {
-  exampleGet,
-  examplePost,
   calculateMatrix
 }
