@@ -11,6 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 [Visual Studio Code](https://code.visualstudio.com/download) - Editor 
+
 [Git Bash](https://git-scm.com/download/win) - Git
 
 ### Installing
