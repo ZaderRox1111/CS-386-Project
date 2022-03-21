@@ -277,7 +277,7 @@ ComplexNumber.prototype.toString=function() {
 function realMatrixFromJSON(json) {
 	const mat=new RealMatrix(json.rows,json.cols);
 	for(let i=0;i<json.entries.length;i++)
-		mat.set(Math.floor(i/json.cols),i%json.cols);
+		mat.set(Math.floor(i/json.cols),i%json.cols,json.entries[i]);
 	return mat;
 }
 function vectorByScalar(v,c) {
