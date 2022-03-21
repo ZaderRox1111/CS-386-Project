@@ -1,8 +1,6 @@
 //TODO: Add Export statements for all classes in this file, and whatever other functions you deem necessary
 
 class AbstractMatrix {
-	#matrix;
-	rows; cols;
 	constructor(rows,cols,e) {
 		if(rows<1||cols<1)
 			throw 'New matrix must be at least 1x1.';
@@ -237,7 +235,6 @@ class ComplexMatrix extends AbstractMatrix { //Will write ComplexMatrix after we
 }
 
 class ComplexNumber {
-	re; im;
 	constructor(re,im) {
 		this.re=re;
 		this.im=im;
@@ -275,9 +272,12 @@ ComplexNumber.prototype.toString=function() {
 };
 
 function realMatrixFromJSON(json) {
-	const mat=new RealMatrix(json.rows,json.cols);
-	for(let i=0;i<json.entries.length;i++)
-		mat.set(Math.floor(i/json.cols),i%json.cols,json.entries[i]);
+	const entries = JSON.parse(json.entries);
+
+	const mat=new RealMatrix(parseInt(json.rows),parseInt(json.cols));
+	for(let i=0;i<entries.length;i++) {
+		mat.set(Math.floor(i/parseInt(json.cols)),i%parseInt(json.cols),entries[i]);
+	}
 	return mat;
 }
 function vectorByScalar(v,c) {
@@ -311,4 +311,9 @@ function dotComplex(v1,v2) {
 	for(let i=0;i<v1.length;i++)
 		sum=sum.add(v1[i].multiply(v2[i]));
 	return sum;
+}
+
+module.exports = {
+	RealMatrix,
+	realMatrixFromJSON
 }
