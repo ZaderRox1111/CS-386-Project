@@ -1,6 +1,6 @@
 // Handlers folder will handle requests. Put utility stuff like calculations/etc in util
 
-const { RealMatrix } = require('../util/matrix');
+const { RealMatrix, realMatrixFromJSON } = require('../util/matrix');
 
 // ===========================================
 // Examples
@@ -26,18 +26,38 @@ const examplePost = (req, res) => {
 // Legit functions
 // ===========================================
 
-const calculateRrefMatrix = (matrix) {
+const make2DArray1D = array2D => {
+  let newArray = [];
+  let index = 0;
   
+  for (let outIndex = 0; outIndex < array2D.length; outIndex++) {
+    for (let inIndex = 0; inIndex < array2D[outIndex].length; inIndex++) {
+      newArray[index] = array2D[outIndex][inIndex];
+      index++;
+    }
+  }
+
+  return newArray;
+}
+
+const calculateRref = matrix => {
+  // matrix returned by realMatrix is a RealMatrix object
+  let rref = matrix.rref();
+
+  rref.matrix = make2DArray1D(rref.matrix);
+
+  return rref;
 }
 
 // Calculate
 const calculateMatrix = (req, res) => {
   // Body received will resemble '{rows:3,cols:3,entries:[0,0,0,0,0,0,0,0,0]}'
-  const body = JSON.parse(req.body);
+  //const body = JSON.parse(req.body);
+  const body = req.body;
 
-  const rrefMatrix = calculateRrefMatrix(body);
+  const rrefMatrix = calculateRref(realMatrixFromJSON(body));
 
-  res.status(200).send(body);
+  res.status(200).send(JSON.stringify(rrefMatrix));
 }
 
 module.exports = {

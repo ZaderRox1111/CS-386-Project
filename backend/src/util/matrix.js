@@ -271,6 +271,15 @@ ComplexNumber.prototype.toString=function() {
 	return this.re+op+this.im+"i";
 };
 
+function realMatrixFromJSON(json) {
+	const entries = JSON.parse(json.entries);
+
+	const mat=new RealMatrix(parseInt(json.rows),parseInt(json.cols));
+	for(let i=0;i<entries.length;i++) {
+		mat.set(Math.floor(i/parseInt(json.cols)),i%parseInt(json.cols),entries[i]);
+	}
+	return mat;
+}
 function vectorByScalar(v,c) {
 	let prod=[];
 	prod.length=v.length;
@@ -305,5 +314,6 @@ function dotComplex(v1,v2) {
 }
 
 module.exports = {
-	RealMatrix
+	RealMatrix,
+	realMatrixFromJSON
 }
