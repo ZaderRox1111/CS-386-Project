@@ -61,5 +61,7 @@ const calculateMatrix = (req, res) => {
 }
 
 module.exports = {
-  calculateMatrix
+  calculateMatrix,
+  calculateRref,
+  make2DArray1D
 }
