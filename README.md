@@ -10,20 +10,19 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-[Visual Studio Code](https://code.visualstudio.com/download) - Editor 
-
-[Git Bash](https://git-scm.com/download/win) - Git
+* [Visual Studio Code](https://code.visualstudio.com/download) - Editor 
+* [Git Bash](https://git-scm.com/download/win) - Git
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
-clone the repo
-open the cloned repo with Visual Studio Code
-cd into backend
-run **npm run local**
-access it on **localhost:8080/server/matrix/example/get**
-git pull from test
+* clone the repo
+* open the cloned repo with Visual Studio Code
+* cd into backend
+* run **npm run local**
+* access it on **localhost:8080/server/matrix/example/get**
+* git pull from test
 
 ## Running the tests
 
