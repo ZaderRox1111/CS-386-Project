@@ -274,6 +274,12 @@ ComplexNumber.prototype.toString=function() {
 	return this.re+op+this.im+"i";
 };
 
+function realMatrixFromJSON(json) {
+	const mat=new RealMatrix(json.rows,json.cols);
+	for(let i=0;i<json.entries.length;i++)
+		mat.set(Math.floor(i/json.cols),i%json.cols);
+	return mat;
+}
 function vectorByScalar(v,c) {
 	let prod=[];
 	prod.length=v.length;
