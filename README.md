@@ -1,14 +1,85 @@
 # CS-386-Project
 
-## Basic Rules
+One Paragraph of project description goes here
 
-Some quick rules for the repo so everything goes smoothly:
-- We are pretending that master and test are **protected**, so that means **no direct pushing to master or test**. Make a new branch from test, push all of your changes and stuff to that new branch, then when you are finished, merge that new branch into *test*. At the end of the week or whenever everybody is done for the week, we will merge test into master.
-- If you have work or think of work, go to the *Projects* tab and make an issue for said work. Read the first one I made to see how we are structuring issues. **Always** comment updates or descriptions and stuff before you close out the story. No need for anything long or fancy, just something easy and simple to know what was done.
-- If you have any suggestions or opinions on the setup I made, please let me know, the most important thing is having a dev environment we like and understand.
+## Getting Started
 
-## Description of Project
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-## How to Use the Product
+### Prerequisites
 
-## Technology Used
+What things you need to install the software and how to install them
+
+```
+Give examples
+```
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running
+
+Say what the step will be
+
+```
+Give the example
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo
+
+## Running the tests
+
+Explain how to run the automated tests for this system
+
+### Break down into end to end tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+### And coding style tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Built With
+
+* JavaScript
+* Java Swing
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+## Authors
+
+* **Dylan Motz** 
+* **Zachariah Derrick** 
+* **Gabrielle Jones** 
+* **Hayden Piwonka** 
+* **Jacob Olson** 
+* **Gareth Carew** 
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
