@@ -15,7 +15,7 @@ public class Matrix {
 		rows=obj.get("rows").getAsInt();
 		cols=obj.get("cols").getAsInt();
 		this.entries=new double[rows*cols];
-		JsonArray entries=obj.get("entries").getAsJsonArray();
+		JsonArray entries=obj.get("matrix").getAsJsonArray();
 		for(int i=0;i<entries.size();i++)
 			this.entries[i]=entries.get(i).getAsDouble();
 	}
@@ -27,10 +27,12 @@ public class Matrix {
 	}
 	@Override
 	public String toString() {
-		String str="{rows:"+rows+",cols:"+cols+",entries:[";
+		//String str="{rows:"+rows+",cols:"+cols+",entries:[";
+		String str="[";
 		for(int i=0;i<entries.length-1;i++)
 			str+=entries[i]+",";
-		str+=entries[entries.length-1]+"]}";
+		//str+=entries[entries.length-1]+"]}";
+		str+=entries[entries.length-1]+"]";
 		return str;
 	}
 }
