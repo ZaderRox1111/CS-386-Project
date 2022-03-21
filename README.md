@@ -26,7 +26,7 @@ A step by step series of examples that tell you how to get a development env run
 
 ## Running the tests
 
-For unit testing use Husky 
+For unit testing use Mocha 
 
 ## Deployment
 
