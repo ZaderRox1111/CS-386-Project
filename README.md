@@ -1,14 +1,79 @@
-# CS-386-Project
+# CS-386-Project(QuikMafs)
 
-## Basic Rules
+QuikMafs is an easy-to-use online calculator for students that will include a matrix calculator, unit conversions, statistic calculations, and probability calculator. Our goal is to develop a calculator that will help students solve math problems and teach them. Every calculator will have step-by-step processes to guide the user on how to do the problem. Finally, QuikMafs will have an easy-to-understand and friendly UI. 
 
-Some quick rules for the repo so everything goes smoothly:
-- We are pretending that master and test are **protected**, so that means **no direct pushing to master or test**. Make a new branch from test, push all of your changes and stuff to that new branch, then when you are finished, merge that new branch into *test*. At the end of the week or whenever everybody is done for the week, we will merge test into master.
-- If you have work or think of work, go to the *Projects* tab and make an issue for said work. Read the first one I made to see how we are structuring issues. **Always** comment updates or descriptions and stuff before you close out the story. No need for anything long or fancy, just something easy and simple to know what was done.
-- If you have any suggestions or opinions on the setup I made, please let me know, the most important thing is having a dev environment we like and understand.
+## Getting Started
 
-## Description of Project
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-## How to Use the Product
+### Prerequisites
 
-## Technology Used
+What things you need to install the software
+
+* [Visual Studio Code](https://code.visualstudio.com/download) - Editor 
+* [Git Bash](https://git-scm.com/download/win) - Git
+
+### Installing
+
+A step by step series of examples that tell you how to get a development env running
+
+* clone the repo
+* open the cloned repo with Visual Studio Code
+* cd into backend
+* run **npm run local**
+* access it on **localhost:8080/server/matrix/example/get**
+* git pull from test
+
+## Running the tests
+
+Explain how to run the automated tests for this system
+
+### Break down into end to end tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+### And coding style tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Built With
+
+* JavaScript
+* JavaSwing
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+For versioning we use 
+
+Current Version: 
+
+## Authors
+
+* **Dylan Motz** 
+* **Zachariah Derrick** 
+* **Gabrielle Jones** 
+* **Hayden Piwonka** 
+* **Jacob Olson** 
+* **Gareth Carew** 
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
