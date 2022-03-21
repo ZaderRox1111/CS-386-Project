@@ -46,7 +46,7 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Users will be able to install a downloadable jar file. From there the user can open it and do any calculations need. 
 
 ## Built With
 
