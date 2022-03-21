@@ -303,3 +303,7 @@ function dotComplex(v1,v2) {
 		sum=sum.add(v1[i].multiply(v2[i]));
 	return sum;
 }
+
+module.exports = {
+	RealMatrix
+}

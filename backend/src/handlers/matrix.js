@@ -1,6 +1,10 @@
 // Handlers folder will handle requests. Put utility stuff like calculations/etc in util
 
-const { getRandomNumber } = require('../util/matrix');
+const { RealMatrix } = require('../util/matrix');
+
+// ===========================================
+// Examples
+// ===========================================
 
 // Example of a JavaScript function that takes a request (req) and sends back a res with data
 // You can do anything you want in between, you just need to send a response (res) back
@@ -18,9 +22,20 @@ const examplePost = (req, res) => {
   res.status(200).send(`Request body: ${body}`);
 }
 
+// ===========================================
+// Legit functions
+// ===========================================
+
+const calculateRrefMatrix = (matrix) {
+  
+}
+
 // Calculate
 const calculateMatrix = (req, res) => {
-  const body = req.body;
+  // Body received will resemble '{rows:3,cols:3,entries:[0,0,0,0,0,0,0,0,0]}'
+  const body = JSON.parse(req.body);
+
+  const rrefMatrix = calculateRrefMatrix(body);
 
   res.status(200).send(body);
 }
