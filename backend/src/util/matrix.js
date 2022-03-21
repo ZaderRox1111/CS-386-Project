@@ -1,8 +1,6 @@
 //TODO: Add Export statements for all classes in this file, and whatever other functions you deem necessary
 
 class AbstractMatrix {
-	#matrix;
-	rows; cols;
 	constructor(rows,cols,e) {
 		if(rows<1||cols<1)
 			throw 'New matrix must be at least 1x1.';
@@ -237,7 +235,6 @@ class ComplexMatrix extends AbstractMatrix { //Will write ComplexMatrix after we
 }
 
 class ComplexNumber {
-	re; im;
 	constructor(re,im) {
 		this.re=re;
 		this.im=im;

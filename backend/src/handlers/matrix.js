@@ -18,7 +18,15 @@ const examplePost = (req, res) => {
   res.status(200).send(`Request body: ${body}`);
 }
 
+// Calculate
+const calculateMatrix = (req, res) => {
+  const body = req.body;
+
+  res.status(200).send(body);
+}
+
 module.exports = {
   exampleGet,
-  examplePost
+  examplePost,
+  calculateMatrix
 }
