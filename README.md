@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+What things you need to install the software
 
 * [Visual Studio Code](https://code.visualstudio.com/download) - Editor 
 * [Git Bash](https://git-scm.com/download/win) - Git
@@ -59,6 +59,9 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 ## Versioning
 
+For versioning we use 
+
+Current Version: 
 
 ## Authors
 
