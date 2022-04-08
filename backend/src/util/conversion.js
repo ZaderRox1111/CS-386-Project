@@ -178,7 +178,7 @@ class Conversion{
         }
     }
 
-    convert(convertFrom, convertTo, value) {
-        return value * this.conversions[this.category][convertFrom][convertTo];
+    convert() {
+        return value * this.conversions[this.category][this.convertFrom][this.convertTo];
     }
 }
