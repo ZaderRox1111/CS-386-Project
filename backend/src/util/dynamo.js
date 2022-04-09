@@ -22,7 +22,23 @@ class Database {
     AWS.config.credentials = credentials;
   }
 
-  getTable() {
+  async accessTable(method, log) {
+    let response;
+
+    try {
+      switch (method) {
+        case 'GET':
+          response = await this.getTable();
+          break;
+      }
+    } catch (error) {
+      response = error;
+    } finally {
+      return response;
+    }
+  }
+
+  async getTable() {
     const dynamo = new AWS.DynamoDB.DocumentClient();
 
     let response;
@@ -30,11 +46,11 @@ class Database {
       TableName: this.tableName
     };
 
-    dynamo.scan(params, (err, data) => {
+    await dynamo.scan(params, (err, data) => {
       response = (err ? err : data);
-    })
+    }).promise();
 
-    return response;
+    return JSON.stringify(response);
   }
 
   async putItem(item) {
@@ -48,7 +64,7 @@ class Database {
 
     await dynamo.put(params, (err, data) => {
       response = (err ? err : data);
-    })
+    }).promise();
 
     return JSON.stringify(response);
   }
@@ -64,7 +80,7 @@ class Database {
 
     await dynamo.scan(params, (err, data) => {
       response = (err ? err : data);
-    })
+    }).promise();
 
     return JSON.stringify(response);
   }
@@ -72,7 +88,7 @@ class Database {
 
 const main = async () => {
   const db = new Database();
-  console.log(await db.getTable());
+  console.log(await db.accessTable('GET', {}));
 }
 
 main();
