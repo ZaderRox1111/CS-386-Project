@@ -30,12 +30,22 @@ class Database {
         case 'GET':
           response = await this.getTable();
           break;
+        case 'PUT':
+          response = await this.putItem(this.createItem(log));
+          break;
+        case 'DELETE':
+          response = await this.deleteItem(log);
+          break;
       }
     } catch (error) {
       response = error;
     } finally {
       return response;
     }
+  }
+
+  createItem(log) {
+    return JSON.stringify(log);
   }
 
   async getTable() {
@@ -75,10 +85,12 @@ class Database {
     let response;
     const params = {
       TableName: this.tableName,
-      Key: item
+      Key: {
+        time: item.time
+      }
     };
 
-    await dynamo.scan(params, (err, data) => {
+    await dynamo.delete(params, (err, data) => {
       response = (err ? err : data);
     }).promise();
 
@@ -91,4 +103,6 @@ const main = async () => {
   console.log(await db.accessTable('GET', {}));
 }
 
-main();
+module.exports = {
+  Database
+};
