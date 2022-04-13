@@ -3,9 +3,10 @@
 
 const { connectLogger, levels } = require('log4js');
 const log4js = require('log4js');
+const { Database } = require('../util/dynamo');
 
 const logBody = (req, res) => {
-  return {
+  const log = {
     request: {
       'user-agent': req.headers['user-agent'],
       host: req.headers.host,
@@ -22,6 +23,12 @@ const logBody = (req, res) => {
       'content-type': res.getHeaders()['content-type']
     }
   }
+
+  // Send the log to the database
+  const db = new Database();
+  db.accessTable('PUT', JSON.stringify(log, replacer));
+
+  return log;
 }
 
 log4js.configure({

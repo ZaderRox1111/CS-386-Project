@@ -45,7 +45,13 @@ class Database {
   }
 
   createItem(log) {
-    return JSON.stringify(log);
+    const dateTime = new Date().toISOString();
+    const jsonLog = JSON.stringify(log);
+
+    return {
+      time: dateTime,
+      log: jsonLog
+    }
   }
 
   async getTable() {
@@ -73,7 +79,7 @@ class Database {
     };
 
     await dynamo.put(params, (err, data) => {
-      response = (err ? err : data);
+      response = (err ? err : item);
     }).promise();
 
     return JSON.stringify(response);
@@ -91,16 +97,11 @@ class Database {
     };
 
     await dynamo.delete(params, (err, data) => {
-      response = (err ? err : data);
+      response = (err ? err : item);
     }).promise();
 
     return JSON.stringify(response);
   }
-}
-
-const main = async () => {
-  const db = new Database();
-  console.log(await db.accessTable('GET', {}));
 }
 
 module.exports = {
