@@ -5,13 +5,15 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon src/app.js",
-    "local": "nodemon src/app.js local",
+    "local": "nodemon src/app.js",
     "test": "mocha"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.1111.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "log4js": "^6.4.1"
   },
