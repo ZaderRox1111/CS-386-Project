@@ -18,7 +18,7 @@ app.use(express.json());
 app.use('/server', router);
 
 // Check if it is local and change accordingly
-if (process.argv[2] === 'local') {
+if (process.env.ENV === 'LOCAL') {
     port = 8080;
     ip = 'localhost'
 }
