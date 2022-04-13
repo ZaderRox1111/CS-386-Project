@@ -25,12 +25,12 @@ const logBody = (req, res) => {
   }
 
   // Send the log to the database
-  if (process.env.ENV !== 'LOCAL') {
+  if (process.env.NODE_ENV === 'PROD') {
     const db = new Database();
     db.accessTable('PUT', JSON.stringify(log, replacer));
   }
   else {
-    console.log('Would be accessing database if it wasn\'t ' + process.env.ENV);
+    console.log('Would be accessing database if it wasn\'t ' + process.env.NODE_ENV);
   }
 
   return log;

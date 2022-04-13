@@ -5,6 +5,7 @@ const app = express();
 const cors = require('cors');
 const { httpLogger } = require('./middlewares/logger')
 const router = require('./router/router');
+require('dotenv').config();
 
 let port = 80;
 let ip = '104.168.247.236';
@@ -18,7 +19,8 @@ app.use(express.json());
 app.use('/server', router);
 
 // Check if it is local and change accordingly
-if (process.env.ENV === 'LOCAL') {
+if (process.env.NODE_ENV === 'LOCAL') {
+    logger.info('Running locally!');
     port = 8080;
     ip = 'localhost'
 }
