@@ -7,6 +7,8 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeListener;
+import java.awt.*;
+
 public class MatrixWindow extends JFrame {
 	private static final long serialVersionUID=1L;
 	private final JPanel panel;
@@ -68,8 +70,27 @@ public class MatrixWindow extends JFrame {
 		return mat;
 	}
 	private void updateSize(int rows,int cols) {
-		setSize(Math.max(30+55*cols,250),125+45*rows);
+
+		Dimension currentSize = getSize();
+		int currentWidth = currentSize.width;
+		int currentHeight = currentSize.height;
+		int minWidth = Math.max(30+55*cols,250);
+		int minHeight = Math.max(30+35*rows,250);
+		int updatedWidth = currentWidth;
+		int updatedHeight = currentHeight;
+
+		if(currentWidth < minWidth)
+		{
+			updatedWidth = minWidth;
+		}
+		if(currentHeight < minHeight)
+		{
+			updatedHeight = minHeight;
+		}
+
+		setSize(updatedWidth,updatedHeight);
 		setSize(getWidth()+1,getHeight());
+		setSize(getWidth()-1,getHeight());
 		rref.setText(null);
 		if(entries!=null)
 			operateOnEntries(panel::remove);
@@ -100,7 +121,7 @@ public class MatrixWindow extends JFrame {
 			for(JTextField e:row)
 				op.operate(e);
 	}
-	private static interface EntryOp {
+	private interface EntryOp {
 		void operate(JTextField e);
 	}
 }
