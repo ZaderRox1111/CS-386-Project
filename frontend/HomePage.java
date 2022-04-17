@@ -1,75 +1,41 @@
 package thebestcsgroup.quikmafs;
-
-import java.awt.event.*;
-import javax.swing.*;
-
-public class HomePage implements ActionListener
-{
- 
-	JFrame frame = new JFrame();
-	JButton matrixButton = new JButton("Matrix");
-	JButton statsButton = new JButton("Statistic");
-	JButton conversionButton = new JButton("Conversions");
-	JButton probabilityButton = new JButton("probability");
-	 
-	HomePage()
-	{
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+public class HomePage extends JFrame {
+	private static final long serialVersionUID=1L; //Used internally by Eclipse
+	private JButton matrixButton = new JButton("Matrix");
+	private JButton statsButton = new JButton("Statistic");
+	private JButton conversionButton = new JButton("Conversions");
+	private JButton probabilityButton = new JButton("probability");
+	public HomePage() {
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(550,375);
 		//matrix button setup
 		matrixButton.setBounds(20,150,250,75);
 		matrixButton.setFocusable(false);
-		matrixButton.addActionListener(this);
-		  
+		matrixButton.addActionListener(e -> new MatrixWindow().setVisible(true));
+		
 		//stats button setup
 		statsButton.setBounds(20,225,250,75);
 		statsButton.setFocusable(false);
-		statsButton.addActionListener(this);
+		//statsButton.addActionListener(e -> new StatisticsWindow().setVisible(true));
 		  
 		//conversion button setup
 		conversionButton.setBounds(270,150,250,75);
 		conversionButton.setFocusable(false);
-		conversionButton.addActionListener(this);
+		//conversionButton.addActionListener(e -> new ConversionsWindow().setVisible(true));
 		  
 		//Probability button setup
 		probabilityButton.setBounds(270,225,250,75);
 		probabilityButton.setFocusable(false);
-		probabilityButton.addActionListener(this);
-		  
-		frame.add(matrixButton);
-		frame.add(statsButton);
-		frame.add(conversionButton);
-		frame.add(probabilityButton);
-		  
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(550,375);
-		frame.setLayout(null);
-		frame.setVisible(true);
-  }
-
-	@Override
-	public void actionPerformed(ActionEvent action) 
- 	{
-		if(action.getSource()==matrixButton) 
-		{
-			frame.dispose();
-			new MatrixWindow().setVisible(true);
-		}
-		  
-		if(action.getSource()==statsButton) 
-		{
-			frame.dispose();
-			//StatsWindow statsCalc = new StatsWindow();
-		}
-		  
-		if(action.getSource()==conversionButton) 
-		{
-			frame.dispose();
-			//ConversionsWindow convertCalc = new ConversionsWindow();
-		}
-		  
-		if(action.getSource()==probabilityButton) 
-		{
-			frame.dispose();
-			//ProbabilityWindow probabiltyCalc = new ProbabiltyWindow();
-		}
+		//probabilityButton.addActionListener(e -> new ProbabilityWindow().setVisible(true));
+		
+		JPanel panel=new JPanel(null);
+		panel.add(matrixButton);
+		panel.add(statsButton);
+		panel.add(conversionButton);
+		panel.add(probabilityButton);
+		add(panel);
 	}
 }
