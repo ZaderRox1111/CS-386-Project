@@ -70,27 +70,8 @@ public class MatrixWindow extends JFrame {
 		return mat;
 	}
 	private void updateSize(int rows,int cols) {
-
-		Dimension currentSize = getSize();
-		int currentWidth = currentSize.width;
-		int currentHeight = currentSize.height;
-		int minWidth = Math.max(30+55*cols,250);
-		int minHeight = Math.max(30+35*rows,250);
-		int updatedWidth = currentWidth;
-		int updatedHeight = currentHeight;
-
-		if(currentWidth < minWidth)
-		{
-			updatedWidth = minWidth;
-		}
-		if(currentHeight < minHeight)
-		{
-			updatedHeight = minHeight;
-		}
-
-		setSize(updatedWidth,updatedHeight);
-		setSize(getWidth()+1,getHeight());
-		setSize(getWidth()-1,getHeight());
+		setSize(Math.max(30+55*cols,getWidth()),Math.max(125+45*rows,getHeight())+1);
+		setSize(getWidth(),getHeight()-1);
 		rref.setText(null);
 		if(entries!=null)
 			operateOnEntries(panel::remove);
@@ -116,12 +97,9 @@ public class MatrixWindow extends JFrame {
 		label+="</html>";
 		rref.setText(label);
 	}
-	private void operateOnEntries(EntryOp op) {
+	private void operateOnEntries(Consumer<JTextField> op) {
 		for(JTextField[] row:entries)
 			for(JTextField e:row)
-				op.operate(e);
-	}
-	private interface EntryOp {
-		void operate(JTextField e);
+				op.accept(e);
 	}
 }
