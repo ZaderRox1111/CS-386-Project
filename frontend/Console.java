@@ -29,39 +29,39 @@ public class Console {
 		}
 	}
 	public static String sendToNodeServer(String path,List<NameValuePair> nvps) throws Exception {
-        DefaultHttpClient httpclient=new DefaultHttpClient();
-        HttpPost httpost=new HttpPost(path);
-        httpost.setEntity(new UrlEncodedFormEntity(nvps,HTTP.UTF_8));
-        HttpResponse response=httpclient.execute(httpost);
-        httpclient.getConnectionManager().shutdown();
-        httpclient.close();
-        InputStream content=response.getEntity().getContent();
-        String result="";
-        int next;
-        while(true) {
-        	next=content.read();
-        	if(next==-1)
-        		break;
-        	result+=(char)next;
-        }
-        return result;
+		DefaultHttpClient httpclient=new DefaultHttpClient();
+		HttpPost httpost=new HttpPost(path);
+		httpost.setEntity(new UrlEncodedFormEntity(nvps,HTTP.UTF_8));
+		HttpResponse response=httpclient.execute(httpost);
+		httpclient.getConnectionManager().shutdown();
+		httpclient.close();
+		InputStream content=response.getEntity().getContent();
+		String result="";
+		int next;
+		while(true) {
+			next=content.read();
+			if(next==-1)
+				break;
+			result+=(char)next;
+		}
+		return result;
 	}
 	public static String sendToNodeServer(Matrix mat) throws Exception {
 		if(mat==null)
 			return null;
-        List<NameValuePair> nvps=new ArrayList<NameValuePair>();
-        nvps.add(new BasicNameValuePair("rows",""+mat.rows));
-        nvps.add(new BasicNameValuePair("cols",""+mat.cols));
-        nvps.add(new BasicNameValuePair("entries",mat.toString()));
-        return sendToNodeServer("http://104.168.247.236/server/matrix/calculate",nvps);
+		List<NameValuePair> nvps=new ArrayList<NameValuePair>();
+		nvps.add(new BasicNameValuePair("rows",""+mat.rows));
+		nvps.add(new BasicNameValuePair("cols",""+mat.cols));
+		nvps.add(new BasicNameValuePair("entries",mat.toString()));
+		return sendToNodeServer("http://104.168.247.236/server/matrix/calculate",nvps);
 	}
 	public static String sendToNodeServer(double value,Unit convertFrom,Unit convertTo) throws Exception {
-        List<NameValuePair> nvps=new ArrayList<NameValuePair>();
-        nvps.add(new BasicNameValuePair("value",""+value));
-        nvps.add(new BasicNameValuePair("category",convertFrom.type.toString()));
-        nvps.add(new BasicNameValuePair("convertFrom",convertFrom.toString()));
-        nvps.add(new BasicNameValuePair("convertTo",convertTo.toString()));
-        return sendToNodeServer("http://104.168.247.236/server/conversion",nvps);
+		List<NameValuePair> nvps=new ArrayList<NameValuePair>();
+		nvps.add(new BasicNameValuePair("value",""+value));
+		nvps.add(new BasicNameValuePair("category",convertFrom.type.toString()));
+		nvps.add(new BasicNameValuePair("convertFrom",convertFrom.toString()));
+		nvps.add(new BasicNameValuePair("convertTo",convertTo.toString()));
+		return sendToNodeServer("http://104.168.247.236/server/conversion",nvps);
 	}
 	public static String sendToNodeServer(double v1,double v2,char op) throws Exception {
 		List<NameValuePair> nvps=new ArrayList<NameValuePair>();
