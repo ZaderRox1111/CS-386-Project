@@ -1,4 +1,5 @@
 package thebestcsgroup.quikmafs;
+import java.util.function.Consumer;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -7,19 +8,16 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeListener;
-import java.awt.*;
-
 public class MatrixWindow extends JFrame {
 	private static final long serialVersionUID=1L;
 	private final JPanel panel;
 	private final JSpinner rows,cols;
-	private final JButton calcButton;
 	private final JLabel rref;
 	private JTextField[][] entries;
 	public MatrixWindow() {
 		super("RREF Calculator");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLocation(150,100);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setBounds(150,100,240,0);
 		panel=new JPanel(null);
 		add(panel);
 		JLabel label=new JLabel("Rows");
@@ -34,7 +32,7 @@ public class MatrixWindow extends JFrame {
 		cols=new JSpinner(new SpinnerNumberModel(3,1,8,1));
 		cols.setBounds(56,20,35,20);
 		panel.add(cols);
-		calcButton=new JButton("Calculate");
+		JButton calcButton=new JButton("Calculate");
 		calcButton.setBounds(110,12,90,20);
 		panel.add(calcButton);
 		rref=new JLabel();
@@ -86,7 +84,7 @@ public class MatrixWindow extends JFrame {
 			}
 	}
 	private void updateRREF(Matrix mat) {
-		rref.setBounds(10,50+25*entries.length,30*mat.cols,20+20*mat.rows);
+		rref.setBounds(10,50+25*entries.length,100+30*mat.cols,20+20*mat.rows);
 		String label="<html>RREF<br/>";
 		for(int i=0;i<mat.rows;i++) {
 			label+="[ ";
