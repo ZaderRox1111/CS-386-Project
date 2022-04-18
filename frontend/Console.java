@@ -64,26 +64,26 @@ public class Console {
         return sendToNodeServer("http://104.168.247.236/server/conversion",nvps);
 	}
 	public static String sendToNodeServer(double v1,double v2,char op) throws Exception {
-        List<NameValuePair> nvps=new ArrayList<NameValuePair>();
-        switch(op) {
-        	case 'P':
-                nvps.add(new BasicNameValuePair("n",""+(int)v1));
-                nvps.add(new BasicNameValuePair("r",""+(int)v2));
-        		return sendToNodeServer("http://104.168.247.236/server/probability/pnr",nvps);
-        	case 'C':
-                nvps.add(new BasicNameValuePair("n",""+(int)v1));
-                nvps.add(new BasicNameValuePair("r",""+(int)v2));
-        		return sendToNodeServer("http://104.168.247.236/server/probability/cnr",nvps);
-        	case '∪':
-                nvps.add(new BasicNameValuePair("probA",""+v1));
-                nvps.add(new BasicNameValuePair("probB",""+v2));
-        		return sendToNodeServer("http://104.168.247.236/server/probability/union",nvps);
-        	case '∩':
-                nvps.add(new BasicNameValuePair("probA",""+v1));
-                nvps.add(new BasicNameValuePair("probB",""+v2));
-        		return sendToNodeServer("http://104.168.247.236/server/probability/intersect",nvps);
-        	default:
-        		return null;
-        }
+		List<NameValuePair> nvps=new ArrayList<NameValuePair>();
+		switch(op) {
+			case 'P':
+			nvps.add(new BasicNameValuePair("n",""+(int)v1));
+			nvps.add(new BasicNameValuePair("r",""+(int)v2));
+				return sendToNodeServer("http://104.168.247.236/server/probability/pnr",nvps);
+			case 'C':
+			nvps.add(new BasicNameValuePair("n",""+(int)v1));
+			nvps.add(new BasicNameValuePair("r",""+(int)v2));
+				return sendToNodeServer("http://104.168.247.236/server/probability/cnr",nvps);
+			case '∪':
+			nvps.add(new BasicNameValuePair("probA",""+v1));
+			nvps.add(new BasicNameValuePair("probB",""+v2));
+				return sendToNodeServer("http://104.168.247.236/server/probability/union",nvps);
+			case '∩':
+			nvps.add(new BasicNameValuePair("probA",""+v1));
+			nvps.add(new BasicNameValuePair("probB",""+v2));
+				return sendToNodeServer("http://104.168.247.236/server/probability/intersect",nvps);
+			default:
+				return null;
+		}
 	}
 }
