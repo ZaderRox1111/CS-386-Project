@@ -71,6 +71,10 @@ class Conversion{
     }
 
     convert() {
-        return value * this.ConversionDict[this.category][this.convertTo] / this.ConversionDict[this.category][this.convFrom];
+        return this.value * this.ConversionDict[this.category][this.convertTo] / this.ConversionDict[this.category][this.convertFrom];
     }
+}
+
+module.exports = {
+    Conversion
 }
